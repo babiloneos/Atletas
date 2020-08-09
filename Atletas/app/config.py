@@ -1,5 +1,5 @@
 class Config(object):
-    SECRET_KEY = 'CambiarEstoPorUnaLlaveSegura'
+    SECRET_KEY = '38EcF49@y$JUiVux'
 
 class DevelopmentConfig(Config):
     DEBUG = True

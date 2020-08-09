@@ -1,13 +1,15 @@
 from flask import Flask, render_template,  request, session, redirect, url_for, g, flash, abort
 from config import DevelopmentConfig
 from models import db, Users, Atletas
+from flask_wtf import CsrfProtect
 from werkzeug.debug import DebuggedApplication
 import forms
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
+csrf = CsrfProtect(app)
 
-app.debug = False
+app.debug = True
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -30,6 +32,7 @@ def index():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    # 121176
     login_form = forms.LoginForm(request.form)
     if request.method == 'POST' and login_form.validate():
         username = login_form.username.data
@@ -54,9 +57,7 @@ def buscador():
             flash(error_message)
             buscar=None
         else:
-            connection = db.engine.connect()
-            resultado = connection.execute(
-            "SELECT * FROM 'atletas' where nombre like '%"+buscar+"%' or pais like '%"+buscar+"%' ORDER BY atletas.nombre ASC")
+            resultado = Atletas.query.filter(Atletas.nombre.like("%{}%".format(buscar))).order_by(Atletas.nombre.asc())
             return render_template('buscador.html', busqueda=buscar, resultado=resultado, form=buscador_form)
     return render_template('buscador.html', busqueda=buscar, form=buscador_form)
 
@@ -87,5 +88,5 @@ if __name__ == '__main__':
         db.create_all()
       
     application = DebuggedApplication(app, False)
-    app.run(debug=False, use_evalex=False)
+    app.run(debug=True, use_evalex=False)
  

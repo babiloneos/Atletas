@@ -9,27 +9,24 @@ Ramos Esteban
 ## Para el ctfd                                                                                                                                                                                               
 ~                                                                                                                                                                                                                  
 ```                                                                                                                                                                                                                
-Título: Atletas                                                                                                                                                                                            
+Título: Mi reto                                                                                                                                                                                            
 ~                                                                                                                                                                                                                  
-Descripción: 
-
-Hint1: Quizás podrías probar con un diccionario famoso
-Hint2: SQLi
-
+Descripción: Me dijeron que es redficil
 ```                                                                                                                                                                                                                
 ~                                                                                                                                                                                                                  
 ## Descripción                                                                                                                                                                                                     
-~                                 
+~                                                                                                                                                                                                                  
+La aplicación web emula la funcionalidad de ....
+~                                                                                                                                                                                                                  
 El objetivo es bruteforcear el login y lograr una inyección en la búsqueda para listar todas las imágenes                                                                                                                                            
 ~                                                                                                                                                                                                                  
 ## Dificultad                                                                                                                                                                                                      
 ~                                                                                                                                                                                                                  
-Fácil                                                                                                                                                                                                           
+Dificil                                                                                                                                                                                                            
 ~                                                                                                                                                                                                                  
 ## Cómo deployarlo                                                                                                                                                               
 
-Basta con ejecutar el container de docker despues de buildear la imagen con Dockerfile.
-
+Basta con ejecutar el container de docker despues de buildear la imagen con Dockerfile.                                   
 ~                                                                                                                                                                                                                  
 ### Cómo instalarlo                                                                                                                                                                                                
 ~                                                                                                                                                                                                                  

@@ -29,7 +29,7 @@
               <button class="btn btn-lg btn-primary btn-block" type="submit">Buscar</button>
             </div>
           </div>
-        </form>
+          </form>
   
       </div>
     </div>
@@ -40,10 +40,10 @@
   <div id="resultados" class="resultados">
     {% for res in resultado %}
       <div id="resultado" class="resultado">
-        <img src="{{ url_for('static', filename='img/'+res[3])}}" alt="" class="foto">
+        <img src="{{ url_for('static', filename='img/'+res.foto_url)}}" alt="" class="foto">
         <div class="detalles">
-          <h3 class="nombre">{{ res[1] }}</h3>
-          <h4 class="pais">{{ res[2] }}</h4>
+          <h3 class="nombre">{{ res.nombre }}</h3>
+          <h4 class="pais">{{ res.pais }}</h4>
         </div>
       </div>
       <hr>

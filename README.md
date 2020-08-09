@@ -18,47 +18,29 @@ Descripción: Casi dioses entre los mortales.
 ~                                                                                                                                                                                                                  
 La aplicación web emula la funcionalidad de un buscador que requiere loguin.
 ~                                                                                                                                                                                                                  
-El objetivo es bruteforcear el login y lograr una inyección en la búsqueda para listar todas las imágenes, y encontrar información oculta en estas.   
-
-#### Hint 1:
-Quizás podrías probar con un diccionario famoso
-
-#### Hint 2:
-¡Malditas inyecciones! Tan fácil que sería poner la flag en una página sin más.
-
-~ 
-
-_Los hints, por si es necesario aclararlo, estarían mejor a cambio de puntos en el CTF._                                                                                                                                                                                                                  
-
+El objetivo es bruteforcear el login y lograr una inyección en la búsqueda para listar todas las imágenes, y encontrar información oculta en estas.                                                                                                                                            
+~                                                                                                                                                                                                                  
 ## Dificultad                                                                                                                                                                                                      
 ~                                                                                                                                                                                                                  
 Medio                                                                                                                                                                                                            
 ~                                                                                                                                                                                                                  
 ## Cómo deployarlo                                                                                                                                                               
 
-Basta con ejecutar el container de docker despues de buildear la imagen con Dockerfile: docker run -p 1986:5000 --name atletas atletas:[TAG]                             
+Basta con ejecutar el container de docker despues de buildear la imagen con Dockerfile.                                   
 ~                                                                                                                                                                                                                  
 ### Cómo instalarlo                                                                                                                                                                                                
 ~                                                                                                                                                                                                                  
-#### Build                                                                                                                                                         
-
-Para buildear el reto: 
--git checkout Vulnerable
--docker build atletas:vulnerable
-
-Para buildear el reto parcheado:
--git checkout Seguro
--docker build atletas:seguro
+#### Build                                                                                                                                                                                                         
 
 ### Cómo cambiar la flag
 
-- Ejecutar el script set_flag.sh mientras el container esté corriendo o con docker exec atletas bash set_flag.sh
-
-- Ejecutar el container con el parametro -e FLAG=flag_a_setear y correr set_flag.sh
+- Ejecutar el script set_flag.sh mientras el container esté corriendo
+ó
+- Ejecutar el container con el parametro -e FLAG=flag_a_setear
 
 ### Cómo lo acceden
 
-- http://URL:1986
+- http://URL/
 
 ## Cómo resolverlo - Writeup
 
