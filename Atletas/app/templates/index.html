@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block estilos %}
+{% endblock %}
+
+{% block titulo %}Hello there{% endblock %}
+
+{% block cuerpo %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="starter-template">
+    <br><br><br><br>
+    <img src="{{ url_for('static', filename='img/HelloThere.gif')}}" alt="Hello There" height="300px">
+  </div>
+
+</div>
+
+{% endblock %}

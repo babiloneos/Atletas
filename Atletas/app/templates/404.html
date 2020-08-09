@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block titulo %}ERROR 404{% endblock %}
+
+{% block cuerpo %}
+<div class="container">
+
+    <div class="starter-template">
+      <br><br>
+      <h2>ERROR 404</h2>
+      <h3>La página no ha sido encontrada.</h3>
+      <img src="{{ url_for('static', filename='img/NotFound.gif')}}" alt="NOT FOUND" height="600px">
+    </div>
+  
+  </div>
+{% endblock %}

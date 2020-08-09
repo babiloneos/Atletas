@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+
+{% block estilos %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/buscador.css')}}">
+{% endblock %}]
+
+{% block titulo %}Búscale{% endblock %}
+
+{% block cuerpo %}
+{% from "_macro.html" import renderField %}
+
+
+<a class="btn" href="{{ url_for('logout') }}"><button class="btn">DEJENME SALIR!!!</button></a>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <br>
+        <form method="GET" action="{{ url_for('buscador') }}">
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-laber-form-group controls">
+              {{ renderField(form.Buscar, class='form-control') }}
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div id="success"></div>
+          <div class="row">
+            <div class="form-group col-xs-12">
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Buscar</button>
+            </div>
+          </div>
+        </form>
+  
+      </div>
+    </div>
+  </div> 
+
+  {% if busqueda != None %}
+  <div id="query"><h2>Resultados para {{ busqueda }}</h2></div>
+  <div id="resultados" class="resultados">
+    {% for res in resultado %}
+      <div id="resultado" class="resultado">
+        <img src="{{ url_for('static', filename='img/'+res[3])}}" alt="" class="foto">
+        <div class="detalles">
+          <h3 class="nombre">{{ res[1] }}</h3>
+          <h4 class="pais">{{ res[2] }}</h4>
+        </div>
+      </div>
+      <hr>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{% endblock %}
