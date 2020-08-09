@@ -2,6 +2,7 @@
 
 **Atletas** fue el proyecto final para la materia optativa de _Desarrollo Seguro de Aplicaciones_ en la _Facultad de Informática_ de la _Universidad Nacional de La Plata_ (**UNLP**) a la que asistí durante mi estancia de intercambio en la primer mitad del 2020.
 Este proyecto es una aplicación web vulnerable enfocada a ser usada en un CTF que formó parté del curso.
+La aplicación cuenta con una versión [vulnerable](https://github.com/babiloneos/Atletas/tree/master) y otra [segura](https://github.com/babiloneos/Atletas/tree/Seguro). Es decir, una versión útil para el CTF, y otra versión donde arreglamos vulnerabilidades cumpliendo el objetivo de la materia.
 
 ## Elaborado por                                                                                                                                                                                                
 
