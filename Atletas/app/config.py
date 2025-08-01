@@ -4,6 +4,7 @@ class Config(object):
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///static/bagora.db'
+    #SQLALCHEMY_DATABASE_URI = 'sqlite:///bagora.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASK_DEBUG=0
     user_debugger=False

@@ -87,5 +87,5 @@ if __name__ == '__main__':
         db.create_all()
       
     application = DebuggedApplication(app, False)
-    app.run(debug=False, use_evalex=False)
+    app.run(debug=False, use_evalex=False, port=5000)
  
