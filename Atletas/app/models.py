@@ -8,12 +8,12 @@ class Users(db.Model):
     username = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
 
-    def __init__(self, username, password, email):
+    def __init__(self, username, password):
         self.username = username
         self.password = self._create_password(password)
 
     def _create_password(self, password):
-        return generate_password_hash(password, "sha256")
+        return generate_password_hash(password, "pbkdf2:sha256")
 
     def verify_password(self, password):
         return check_password_hash(self.password, password)

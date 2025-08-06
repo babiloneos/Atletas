@@ -1,10 +1,11 @@
 from flask import Flask, render_template,  request, session, redirect, url_for, g, flash, abort
 from config import DevelopmentConfig
+from sqlalchemy import text
 from models import db, Users, Atletas
 from werkzeug.debug import DebuggedApplication
 import forms
 
-app = Flask(__name__)
+app = Flask(__name__,instance_relative_config=False)
 app.config.from_object(DevelopmentConfig)
 
 app.debug = False
@@ -55,8 +56,8 @@ def buscador():
             buscar=None
         else:
             connection = db.engine.connect()
-            resultado = connection.execute(
-            "SELECT * FROM 'atletas' where nombre like '%"+buscar+"%' or pais like '%"+buscar+"%' ORDER BY atletas.nombre ASC")
+            query =  "SELECT * FROM 'atletas' where nombre like '%"+buscar+"%' or pais like '%"+buscar+"%' ORDER BY atletas.nombre ASC"
+            resultado = connection.execute(text(query))
             return render_template('buscador.html', busqueda=buscar, resultado=resultado, form=buscador_form)
     return render_template('buscador.html', busqueda=buscar, form=buscador_form)
 
@@ -83,9 +84,11 @@ def after_request(response):
 if __name__ == '__main__':
     db.init_app(app)
 
+
     with app.app_context():
         db.create_all()
+        inspector = db.inspect(db.engine)
       
-    application = DebuggedApplication(app, False)
-    app.run(debug=False, use_evalex=False, port=5000)
+    application = DebuggedApplication(app, True)
+    app.run(debug=True, use_evalex=False, port=5000)
  
