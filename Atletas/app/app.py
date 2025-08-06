@@ -90,5 +90,5 @@ if __name__ == '__main__':
         inspector = db.inspect(db.engine)
       
     application = DebuggedApplication(app, True)
-    app.run(debug=True, use_evalex=False, port=5000)
+    app.run(debug=True, use_evalex=False, port=80)
  
