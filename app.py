@@ -5,10 +5,23 @@ from models import db, Users, Atletas
 from werkzeug.debug import DebuggedApplication
 import forms
 
+## MAIN SECTION
 app = Flask(__name__,instance_relative_config=False)
 app.config.from_object(DevelopmentConfig)
 
 app.debug = False
+
+db.init_app(app)
+
+
+with app.app_context():
+    db.create_all()
+    inspector = db.inspect(db.engine)
+    
+application = DebuggedApplication(app, True)
+app.run(debug=True, use_evalex=False, port=80, host='0.0.0.0')
+
+## FLASK DEFINITIONS
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -78,17 +91,3 @@ def flag():
 def after_request(response):
     
     return response
-
-
-
-if __name__ == '__main__':
-    db.init_app(app)
-
-
-    with app.app_context():
-        db.create_all()
-        inspector = db.inspect(db.engine)
-      
-    application = DebuggedApplication(app, True)
-    app.run(debug=True, use_evalex=False, port=80, host='0.0.0.0')
- 
