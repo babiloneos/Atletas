@@ -19,7 +19,7 @@ with app.app_context():
     inspector = db.inspect(db.engine)
     
 application = DebuggedApplication(app, True)
-app.run(debug=True, use_evalex=False, port=80, host='0.0.0.0')
+app.run(debug=False, use_evalex=False, port=80, host='0.0.0.0')
 
 ## FLASK DEFINITIONS
 
